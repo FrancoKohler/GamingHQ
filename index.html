@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizify</title>
+
+    <!--CSS LINK-->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!--GOOGLE FONTS LINK-->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Jersey+25&family=Orbitron:wght@400..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <aside>
+        <header>
+          <a href="index.html"
+            ><img src="./imagenes/Logo.png" class="logo" alt="Logo"
+          /></a>
+          <h1 class="webname">Gaming HQ</h1>
+        </header>
+        <nav>
+          <ul class="menu">
+            <li>
+              <button id="todos" class="boton-menu boton-categoria active">
+                <i class="bi bi-caret-right-fill"></i> All Games
+              </button>
+            </li>
+            <li>
+              <button
+                id="sports"
+                class="boton-menu boton-categoria"
+                data-categoria="sports"
+              >
+                <i class="bi bi-caret-right"></i> Sports
+              </button>
+            </li>
+            <li>
+              <button
+                id="rpg"
+                class="boton-menu boton-categoria"
+                data-categoria="rpg"
+              >
+                <i class="bi bi-caret-right"></i> RPG
+              </button>
+            </li>
+            <li>
+              <button
+                id="action"
+                class="boton-menu boton-categoria"
+                data-categoria="action"
+              >
+                <i class="bi bi-caret-right"></i> Action
+              </button>
+            </li>
+            <li>
+              <a href="/carrito.html" class="boton-carrito boton-menu">
+                <i class="bi bi-cart-fill"></i>Cart
+                <span id="numerito" class="numerito">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <footer>
+          <p class="texto-footer">Franco Köhler © 2024</p>
+        </footer>
+      </aside>
+      <main>
+        <h2 id="titulo-principal" class="titulo-principal">All Games</h2>
+        <div id="contenedor-productos" class="contenedor-productos">
+          <!-- Esto se rellena con JS-->
+        </div>
+      </main>
+    </div>
+    <!--LINK JAVA SCRIPT-->
+    <script src="./app/index.js" defer></script>
+  </body>
+</html>
