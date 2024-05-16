@@ -74,24 +74,28 @@ function agregarAlCarrito(e) {
   const productoAgregado = producto.find((producto) => producto.id === idBoton);
 
   if (productosEnCarrito.some((producto) => producto.id === idBoton)) {
-    const index = productosEnCarrito.findIndex(
-      (producto) => producto.id === idBoton
-    );
-    productosEnCarrito[index].cantidad++;
+    // Si el producto ya está en el carrito, muestra una alerta
+    Swal.fire({
+      icon: "warning",
+      title: "Producto repetido",
+      text: "Este producto ya está en tu carrito.",
+      confirmButtonColor: "#0070cc",
+    });
   } else {
-    productoAgregado.cantidad = 1;
+    if (productoAgregado) {
+      // Si el producto no está en el carrito, agrégalo
+      productoAgregado.cantidad = 1;
+      productoAgregado.price = parseFloat(productoAgregado.price);
+      productosEnCarrito.push(productoAgregado);
 
-    productoAgregado.price = parseFloat(productoAgregado.price);
+      actualizarNumerito();
 
-    productosEnCarrito.push(productoAgregado);
+      localStorage.setItem(
+        "productos-en-carrito",
+        JSON.stringify(productosEnCarrito)
+      );
+    }
   }
-
-  actualizarNumerito();
-
-  localStorage.setItem(
-    "productos-en-carrito",
-    JSON.stringify(productosEnCarrito)
-  );
 }
 
 function actualizarNumerito() {
