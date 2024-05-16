@@ -87,48 +87,75 @@ main {
   justify-content: center;
   font-size: 3rem;
 }
-
+/*CARDS*/
 .contenedor-productos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
+.producto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+  gap: 10px;
+}
 
-.gameimg {
+.producto .gameimg {
   max-width: 100%;
   border-radius: 1rem;
   margin-bottom: 0.5rem;
   margin-top: 0.8rem;
   cursor: pointer;
 }
-.gameimg:hover {
+.producto .gameimg:hover {
   filter: drop-shadow(0px 1px 14px #0070cc);
 }
-.game {
+.producto .game {
   color: #ffffff;
   font-family: "Orbitron", sans-serif;
-  margin: auto;
   align-items: center;
   text-align: center;
 }
 
-.p-article {
+.producto .p-article {
   padding: 0.5rem;
   border-radius: 1rem;
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.25rem;
   font-family: monospace;
   color: #b4b4b4;
 }
-.producto-precio {
+.producto .producto-precio {
   color: #89fc00;
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin: auto;
   align-items: center;
   justify-content: center;
   padding-bottom: 15px;
+}
+/*BOTON AGREGAR A FAV*/
+.juego-agregar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px 10px 20px;
+  margin: auto;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.juego-agregar:hover {
+  filter: drop-shadow(0px 1px 14px #0070cc);
 }
 
 /*BOTONES MENU*/
@@ -178,22 +205,6 @@ main {
   margin: auto;
   justify-content: center;
   padding-bottom: 10px;
-}
-
-/*BOTON AGREGAR A FAV*/
-.juego-agregar {
-  display: flex;
-  padding: 10px 20px 10px 20px;
-  margin: auto;
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-.juego-agregar:hover {
-  filter: drop-shadow(0px 1px 14px #0070cc);
 }
 
 /*CARRITO HMTL*/
