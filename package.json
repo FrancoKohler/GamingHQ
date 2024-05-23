@@ -1,0 +1,11 @@
+{
+  "name": "gaminghq",
+  "version": "1.0.0",
+  "description": "Gaming HQ Shopping for Gamers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
