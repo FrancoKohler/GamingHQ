@@ -1,51 +1,57 @@
-const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#titulo-principal");
 let botonesAgregar = document.querySelectorAll(".producto-agregar");
 const numerito = document.querySelector("#numerito");
+const contenedorProductos = document.getElementById("contenedor-productos");
 
-function cargarProductos(productosElegidos) {
+window.addEventListener("DOMContentLoaded", () => {
+  cargarProductos();
+});
+
+let todosLosProductos = [];
+
+async function cargarProductos() {
+  try {
+    const response = await fetch("data.json");
+    todosLosProductos = await response.json();
+    mostrarProductos(todosLosProductos);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function mostrarProductos(productos) {
   contenedorProductos.innerHTML = "";
-
-  productosElegidos.forEach((producto) => {
+  productos.forEach((producto) => {
     const div = document.createElement("div");
     div.classList.add("producto");
     div.innerHTML = `
-        <img src="${producto.imageUrl}" alt="${producto.title}" class="gameimg">
-        
-            <h3 class="game">${producto.title}</h3>
-             <a class="p-article">${producto.content}</a>
-             <p class="producto-precio">${producto.price}</p>
-            <button class="juego-agregar" id="${producto.id}">Agregar</button>
-       
-        `;
-
+      <img src="${producto.imageUrl}" alt="${producto.title}" class="gameimg">
+      <h3 class="game">${producto.title}</h3>
+      <a class="p-article">${producto.content}</a>
+      <p class="producto-precio">${producto.price}</p>
+      <button class="juego-agregar" id="${producto.id}">Agregar</button>
+    `;
     contenedorProductos.append(div);
   });
-
   actualizarBotonesAgregar();
 }
-
-cargarProductos(producto);
 
 botonesCategorias.forEach((boton) => {
   boton.addEventListener("click", (e) => {
     botonesCategorias.forEach((boton) => boton.classList.remove("active"));
     e.currentTarget.classList.add("active");
 
-    if (e.currentTarget.id != "todos") {
-      const productoCategoria = producto.find(
-        (producto) => producto.categoria.id === e.currentTarget.id
+    const categoriaSeleccionada = e.currentTarget.id;
+    if (categoriaSeleccionada !== "todos") {
+      const productosFiltrados = todosLosProductos.filter(
+        (producto) => producto.categoria.id === categoriaSeleccionada
       );
-      tituloPrincipal.innerText = productoCategoria.categoria.nombre;
-
-      const productosBoton = producto.filter(
-        (producto) => producto.categoria.id === e.currentTarget.id
-      );
-      cargarProductos(productosBoton);
+      tituloPrincipal.innerText = productosFiltrados[0].categoria.nombre;
+      mostrarProductos(productosFiltrados);
     } else {
       tituloPrincipal.innerText = "All Games";
-      cargarProductos(producto);
+      mostrarProductos(todosLosProductos);
     }
   });
 });
