@@ -266,6 +266,8 @@ main {
   background-color: transparent;
   color: #ffffff;
   cursor: pointer;
+  font-size: larger;
+  font-weight: 700;
 }
 
 .carrito-acciones {
@@ -310,4 +312,4 @@ main {
   border-bottom-right-radius: 1rem;
 }
 
-/*Sweet Alert CSS*/
+/*CHECKOUT HTML*/

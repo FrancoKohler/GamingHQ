@@ -77,7 +77,9 @@ if (productosEnCarritoLS) {
 
 function agregarAlCarrito(e) {
   const idBoton = e.currentTarget.id;
-  const productoAgregado = producto.find((producto) => producto.id === idBoton);
+  const productoAgregado = todosLosProductos.find(
+    (producto) => producto.id === idBoton
+  );
 
   if (productosEnCarrito.some((producto) => producto.id === idBoton)) {
     // Si el producto ya está en el carrito, muestra una alerta

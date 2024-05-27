@@ -47,9 +47,7 @@ function cargarProductosCarrito() {
               2
             )}</p>
         </div>
-        <button class="carrito-producto-eliminar" id="${
-          producto.id
-        }"><i class="bi bi-trash-fill"></i></button>
+        <button type="button" class="carrito-producto-eliminar" ">X</button>
       `;
 
       contenedorCarritoProductos.append(div);
@@ -117,8 +115,6 @@ botonComprar.addEventListener("click", () => {
     "productos-en-carrito",
     JSON.stringify(productosEnCarrito)
   );
-  cargarProductosCarrito();
-  contenedorCarritoComprado.classList.remove("disabled");
 });
 
 cargarProductosCarrito();
