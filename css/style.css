@@ -312,4 +312,17 @@ main {
   border-bottom-right-radius: 1rem;
 }
 
-/*CHECKOUT HTML*/
+.my-popup {
+  background-color: #000000;
+  border: 1px solid #004177 !important;
+  -webkit-box-shadow: 0px 0px 4px 4px #004177 !important;
+  -moz-box-shadow: 0px 0px 4px 4px #004177 !important;
+  box-shadow: 0px 0px 4px 4px #004177 !important;
+}
+
+.my-title {
+  color: #ffffff;
+}
+.my-confirm-button {
+  background-color: #004177 !important;
+}

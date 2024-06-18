@@ -85,9 +85,14 @@ function agregarAlCarrito(e) {
     // Si el producto ya está en el carrito, muestra una alerta
     Swal.fire({
       icon: "warning",
-      title: "Producto repetido",
-      text: "Este producto ya está en tu carrito.",
-      confirmButtonColor: "#0070cc",
+      title: "Ups",
+      text: "This product is already in your cart.",
+      customClass: {
+        popup: "my-popup",
+        title: "my-title",
+        text: "my-text",
+        confirmButton: "my-confirm-button",
+      },
     });
   } else {
     if (productoAgregado) {

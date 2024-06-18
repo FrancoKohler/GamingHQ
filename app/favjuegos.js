@@ -109,7 +109,15 @@ function vaciarCarrito() {
 }
 
 botonComprar.addEventListener("click", () => {
-  Swal.fire("Thank you for buying!");
+  Swal.fire({
+    icon: "success",
+    title: "Thank you for buying!",
+    customClass: {
+      popup: "my-popup",
+      title: "my-title",
+      confirmButton: "my-confirm-button",
+    },
+  });
   productosEnCarrito = [];
   localStorage.setItem(
     "productos-en-carrito",
